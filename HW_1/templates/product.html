@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>{{ product_name }}</h2>
+    <p>Описание товара {{ product_name }}</p>
+
+    {% if product_name == "Пиджак" %}
+        <img src="{{ url_for('static', filename='images/blazer_for_women_0001.png') }}" alt="Пиджак">
+    {% elif product_name == "Брюки" %}
+        <img src="{{ url_for('static', filename='images/trousers_for_women_0001.png') }}" alt="Брюки">
+    {% else %}
+        <img src="{{ url_for('static', filename='images/default_image.jpg') }}" alt="Стандартное изображение">
+    {% endif %}
+
+    <p>Цена: ${{ product_name|length * 10 }}</p>
+    <!-- Просто для примера, можно добавить реальную логику для определения цены товара -->
+
+    <button>Добавить в корзину</button>
+    <!-- Добавьте другие детали о товаре, которые вы хотите показать -->
+{% endblock %}
+
+

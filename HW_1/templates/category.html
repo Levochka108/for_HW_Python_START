@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>{{ category_name }}</h2>
+    <p>Описание категории товаров {{ category_name }}</p>
+
+    <form action="{{ url_for('filtered_category', category_name=category_name) }}" method="post">
+        <label for="gender">Выберите пол:</label>
+        <select name="gender" id="gender" required>
+            <option value="мужское">Мужское</option>
+            <option value="женское">Женское</option>
+        </select>
+
+        <label for="clothing_type">Выберите тип одежды:</label>
+        <select name="clothing_type" id="clothing_type" required>
+            <option value="рубашки">Рубашки</option>
+            <option value="пиджаки">Пиджаки</option>
+            <option value="брюки">Брюки</option>
+            <!-- Добавьте другие категории по мере необходимости -->
+        </select>
+
+        <button type="submit">Показать товары</button>
+    </form>
+
+    <!-- Дополнительный контент категории товаров -->
+{% endblock %}
+
+
